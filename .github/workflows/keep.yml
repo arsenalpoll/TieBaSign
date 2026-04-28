@@ -17,3 +17,5 @@ jobs:
         run: |
           workflow_id=$(gh api repos/${{ github.repository }}/actions/workflows --jq '.workflows[] | select(.name == "Baidu Tieba Auto Sign") | .id')
           gh api -X PUT "repos/${{github.repository}}/actions/workflows/${workflow_id}/enable"
+          workflow_ida=$(gh api repos/${{ github.repository }}/actions/workflows --jq '.workflows[] | select(.name == "${{ github.workflow }}") | .id')
+          gh api -X PUT "repos/${{github.repository}}/actions/workflows/${workflow_ida}/enable"
